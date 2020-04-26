@@ -7,12 +7,17 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
+    
+    // MARK: - IBOutlet
     
     @IBOutlet var tableView: UITableView!
     
+    // MARK: - Public properties
+    
     var coffees = Coffee.all
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +30,17 @@ class ViewController: UIViewController {
         
         let destination = segue.destination as! Detail
         destination.coffee = coffees[selectedPath.row]
-        
     }
     
 }
 
+// MARK: - Extension
+
+
 extension ViewController: UITableViewDataSource {
+    
+    // MARK: - Public methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coffees.count
     }
@@ -46,7 +56,6 @@ extension ViewController: UITableViewDataSource {
         
         return cell!
     }
-    
     
 }
 
